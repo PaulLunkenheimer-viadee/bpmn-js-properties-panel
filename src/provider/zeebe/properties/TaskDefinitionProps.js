@@ -12,7 +12,10 @@ import {
   createElement
 } from '../../../utils/ElementUtil';
 
-import { useService } from '../../../hooks';
+import {
+  useService,
+  withVariableContext
+} from '../../../hooks';
 
 import {
   isZeebeServiceTask
@@ -120,7 +123,7 @@ function TaskDefinitionType(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id,
     label: translate('Type'),
@@ -208,7 +211,7 @@ function TaskDefinitionRetries(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id,
     label: translate('Retries'),

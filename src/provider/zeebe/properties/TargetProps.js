@@ -16,7 +16,7 @@ import {
   getProcessId
 } from '../utils/CalledElementUtil.js';
 
-import { useService } from '../../../hooks';
+import { useService, withVariableContext } from '../../../hooks';
 
 
 export function TargetProps(props) {
@@ -117,7 +117,7 @@ function TargetProcessId(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id,
     label: translate('Process ID'),

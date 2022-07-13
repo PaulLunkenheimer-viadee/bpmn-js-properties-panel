@@ -8,7 +8,7 @@ import {
   FeelEntry, isFeelEntryEdited
 } from '@bpmn-io/properties-panel';
 
-import { useService } from '../../../hooks';
+import { useService, withVariableContext } from '../../../hooks';
 
 import {
   getMessage
@@ -80,7 +80,7 @@ function MessageName(props) {
     );
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id: 'messageName',
     label: translate('Name'),
@@ -166,7 +166,7 @@ function SubscriptionCorrelationKey(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id: 'messageSubscriptionCorrelationKey',
     label: translate('Subscription correlation key'),

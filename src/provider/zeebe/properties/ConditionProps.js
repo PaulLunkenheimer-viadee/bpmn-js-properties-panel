@@ -12,7 +12,7 @@ import {
 } from '../../../utils/ElementUtil';
 
 import {
-  useService
+  useService, withVariableContext
 } from '../../../hooks';
 
 import {
@@ -102,7 +102,7 @@ function ConditionExpression(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id: 'conditionExpression',
     label: translate('Condition expression'),

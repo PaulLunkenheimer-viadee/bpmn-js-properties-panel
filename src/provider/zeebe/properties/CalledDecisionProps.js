@@ -16,7 +16,7 @@ import {
   createElement
 } from '../../../utils/ElementUtil';
 
-import { useService } from '../../../hooks';
+import { useService, withVariableContext } from '../../../hooks';
 
 
 export function CalledDecisionProps(props) {
@@ -120,7 +120,7 @@ function DecisionID(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id,
     label: translate('Decision ID'),

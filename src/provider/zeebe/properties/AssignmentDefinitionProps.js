@@ -14,7 +14,7 @@ import {
 } from '../../../utils/ElementUtil';
 
 import {
-  useService
+  useService, withVariableContext
 } from '../../../hooks';
 
 
@@ -118,7 +118,7 @@ function Assignee(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id: 'assignmentDefinitionAssignee',
     label: translate('Assignee'),
@@ -205,7 +205,7 @@ function CandidateGroups(props) {
     commandStack.execute('properties-panel.multi-command-executor', commands);
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     element,
     id: 'assignmentDefinitionCandidateGroups',
     label: translate('Candidate groups'),

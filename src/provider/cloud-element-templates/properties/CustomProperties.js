@@ -5,7 +5,7 @@ import {
   isString
 } from 'min-dash';
 
-import { useService } from '../../../hooks';
+import { useService, withVariableContext } from '../../../hooks';
 
 import { PropertyDescription } from '../../element-templates/components/PropertyDescription';
 
@@ -309,7 +309,7 @@ function FeelProperty(props) {
         debounce = useService('debounceInput'),
         translate = useService('translate');
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     debounce,
     element,
     getValue: propertyGetter(element, property),

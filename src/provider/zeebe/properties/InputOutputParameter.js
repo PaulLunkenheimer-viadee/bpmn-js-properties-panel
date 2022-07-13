@@ -6,7 +6,7 @@ import { TextFieldEntry,
   FeelEntry, isFeelEntryEdited } from '@bpmn-io/properties-panel';
 
 import {
-  useService
+  useService, withVariableContext
 } from '../../../hooks';
 
 
@@ -94,7 +94,7 @@ function SourceProperty(props) {
     return parameter.source;
   };
 
-  return FeelEntry({
+  return withVariableContext(FeelEntry)({
     bpmnElement: element,
     element: parameter,
     id: idPrefix + '-source',
